@@ -141,7 +141,7 @@ export default function Home() {
       <footer className="max-w-2xl mx-auto pb-16 px-6 flex flex-col gap-10 items-center border-t border-zinc-100 pt-16">
         <div className="w-full text-center overflow-hidden">
           {/* RESPONSIVE EMAIL: Small on mobile, 100px on large screens */}
-          <h6 className="text-[10vw] md:text-[80px] lg:text-[100px] font-black tracking-tighter leading-none break-all">
+          <h6 className=" text-zinc-400 text-[10vw] md:text-[80px] lg:text-[100px] font-black tracking-tighter leading-none break-all">
             aithink572@gmail.com
           </h6>
         </div>
