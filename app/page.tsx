@@ -12,7 +12,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // PASTE YOUR NEW WEB APP URL HERE
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyYkY7x24jnBh06WwDaI9_q6Dr8OYqmd_sMeRdNGSPdBiJGAU7sPnkOdnGkFY-WW5Cr/exec";
 
   const toggleVideo = () => {
@@ -30,18 +29,16 @@ export default function Home() {
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors", // This is required for Google Script redirects
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email: email }),
       });
 
-      // Show success state
       setIsSubmitted(true);
       setEmail("");
 
-      // AUTO-RESET: After 5 seconds, let the user enter another email
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
@@ -57,10 +54,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-black font-[-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,sans-serif] selection:bg-blue-100 overflow-x-hidden">
       
-      {/* Ultra-Minimal Header */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-zinc-100 px-6 py-4">
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <span className="font-bold tracking-tighter text-xl"> <Image src="/thinkblack.png" alt="Logo" width={100} height={100}/></span>
+          <span className="font-bold tracking-tighter text-xl"> 
+            <Image src="/thinkblack.png" alt="Logo" width={100} height={100}/>
+          </span>
           <div className="flex items-center gap-2 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
             V1.0 Coming Soon
@@ -70,28 +68,24 @@ export default function Home() {
 
       <main className="relative z-10 max-w-2xl mx-auto px-4 pt-16 pb-32">
         
-    
-        {/* Simple Typography Hero */}
         <div className="mb-12 px-2">
           <motion.h1 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-extrabold tracking-[ -0.04em] mb-6 leading-[0.95]"
+            className="text-5xl md:text-6xl font-extrabold tracking-[-0.04em] mb-6 leading-[0.95]"
           >
             Think through. <br/>
             <span className="text-zinc-300 tracking-tighter">Then do.</span>
           </motion.h1>
           <p className="text-xl text-zinc-500 leading-relaxed max-w-md">
             The decision engine that visualizes outcomes through recursive reasoning. 
-            Builts for startups and bussineses who prioritize their plans and privacy.
+            Built for startups and businesses who prioritize their plans and privacy.
           </p>
         </div>
 
-        {/* Stark Waitlist Card */}
         <motion.div 
-          className="relative bg-zinc-50 border border-zinc-200 p-10 md:p-14 rounded-[40px] text-center"
+          className="relative bg-zinc-50 border border-zinc-200 p-8 md:p-14 rounded-[30px] md:rounded-[40px] text-center"
         >
-          {/* Privacy Toggle (Tactile) */}
           <div className="flex justify-center mb-10">
              <button 
               type="button"
@@ -144,13 +138,14 @@ export default function Home() {
 
       </main>
 
-      {/* Modern Footer */}
       <footer className="max-w-2xl mx-auto pb-16 px-6 flex flex-col gap-10 items-center border-t border-zinc-100 pt-16">
-        <div className="flex gap-10 text-[10px] font-black tracking-[0.3em] text-zinc-300">
-      
-          <h6 className="text-[100px]">aithink572@gmail.com</h6>
+        <div className="w-full text-center overflow-hidden">
+          {/* RESPONSIVE EMAIL: Small on mobile, 100px on large screens */}
+          <h6 className="text-[10vw] md:text-[80px] lg:text-[100px] font-black tracking-tighter leading-none break-all">
+            aithink572@gmail.com
+          </h6>
         </div>
-        <div className="text-zinc-300 text-[10px] font-bold">
+        <div className="text-zinc-400 text-[10px] font-bold text-center uppercase tracking-widest">
           © 2026 THINK AI — WE THINK THROUGH SO YOU CAN MAKE A DECISION
         </div>
       </footer>
